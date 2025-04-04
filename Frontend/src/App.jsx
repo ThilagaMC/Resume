@@ -187,7 +187,7 @@ function App() {
                   Identity & Access Management Engineer
                 </span>
               </p>
-              <p className="mb-4 fs-5">
+              <p className="mb-4 fs-5 text-dark">
                 I am an IAM Engineer with two years of experience in identity
                 lifecycle management, automation, and secure access control. I
                 specialize in IAM automation, user provisioning, and API
