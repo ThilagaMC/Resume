@@ -218,29 +218,23 @@ function App() {
                   business growth.
                 </p>
               </div>
-              <div className="mt-4 d-flex flex-column flex-sm-row gap-3 align-items-stretch">
-                <div className="d-flex flex-column flex-sm-row gap-3 flex-grow-1">
-                  <a
-                    href="#contact"
-                    className="btn btn-secondary btn-lg px-4 flex-grow-1 text-center"
-                  >
-                    Contact Me
-                  </a>
-                  <a
-                    href="#project"
-                    className="btn btn-outline-light btn-lg px-4 flex-grow-1 text-center"
-                  >
-                    View Projects
-                  </a>
-                </div>
-                <a
-                  href="/documents/Thilagavathi_MC_Resume.pdf"
-                  download="Thilagavathi_MC_Resume.pdf"
-                  className="btn btn-primary btn-lg px-4 text-center"
-                >
-                  Download Resume
-                </a>
-              </div>
+
+              <div className="mt-4 btn-group-hero">
+  <a href="#contact" className="btn btn-hero btn-hero-secondary">
+    Contact Me
+  </a>
+  <a href="#project" className="btn btn-hero btn-hero-outline">
+    View Projects
+  </a>
+  <a 
+    href="../public/Thilagavathi - Resume.pdf" 
+    download="Thilagavathi_Resume.pdf"
+    className="btn btn-hero btn-hero-primary btn-download"
+  >
+    Download Resume
+  </a>
+</div>
+
             </div>
             <div className="col-lg-4 mt-5 mt-lg-0 text-center">
               <div className="profile-frame position-relative">
