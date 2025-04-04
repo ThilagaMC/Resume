@@ -64,56 +64,59 @@ function App() {
   };
 
   // Handle form submission
- // Add state for alert and loading
-const [alert, setAlert] = useState({ show: false, message: '', variant: '' });
-const [isLoading, setIsLoading] = useState(false);
+  // Add state for alert and loading
+  const [alert, setAlert] = useState({ show: false, message: "", variant: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
-// Handle form submission
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);
-  
-  try {
-    const response = await axios.post(
-      "https://resume-be-ifux.onrender.com/api/contact", 
-      formData
-    );
-    console.log("Response:", response.data);
-    
-    // Show success alert
-    setAlert({
-      show: true,
-      message: "Message sent successfully!",
-      variant: "success"
-    });
-    
-  } catch (error) {
-    console.error("Error:", error.response ? error.response.data : error.message);
-    
-    // Show error alert
-    setAlert({
-      show: true,
-      message: error.response?.data?.error || "Error sending message. Please try again.",
-      variant: "danger"
-    });
-    
-  } finally {
-    setIsLoading(false);
-    
-    // Reset form
-    setFormData({
-      userName: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    
-    // Hide alert after 5 seconds
-    setTimeout(() => {
-      setAlert({ show: false, message: '', variant: '' });
-    }, 5000);
-  }
-};
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const response = await axios.post(
+        "https://resume-be-ifux.onrender.com/api/contact",
+        formData
+      );
+      console.log("Response:", response.data);
+
+      // Show success alert
+      setAlert({
+        show: true,
+        message: "Message sent successfully!",
+        variant: "success",
+      });
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response ? error.response.data : error.message
+      );
+
+      // Show error alert
+      setAlert({
+        show: true,
+        message:
+          error.response?.data?.error ||
+          "Error sending message. Please try again.",
+        variant: "danger",
+      });
+    } finally {
+      setIsLoading(false);
+
+      // Reset form
+      setFormData({
+        userName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+
+      // Hide alert after 5 seconds
+      setTimeout(() => {
+        setAlert({ show: false, message: "", variant: "" });
+      }, 5000);
+    }
+  };
   return (
     <>
       {/* Navigation Bar */}
@@ -171,90 +174,90 @@ const handleSubmit = async (e) => {
       </nav>
 
       {/* Hero Section */}
-<section id="about" className="hero-section py-5 bg-gradient-primary">
-  <div className="container py-5">
-    <div className="row align-items-center">
-      <div className="col-lg-8 pe-lg-5">
-        <h1 className="display-4 fw-bold mb-4">
-          <span className="text-highlight">Hello, I'm</span>{" "}
-          <span style={{ color: "#343a40" }}>Thilagavathi MC</span>
-        </h1>
-        <p className="lead mb-4 text-light-emphasis">
-          <span className="badge bg-primary-gradient fs-6 fw-normal mb-3">
-            Identity & Access Management Engineer
-          </span>
-        </p>
-        <p className="mb-4 fs-5">
-          I am an IAM Engineer with two years of experience in identity
-          lifecycle management, automation, and secure access control. I
-          specialize in IAM automation, user provisioning, and API
-          integrations. Alongside my IAM expertise, I have Full Stack
-          Development skills, enabling me to build secure, scalable
-          applications that integrate seamlessly with identity solutions.
-        </p>
-        <div className="values-box p-4 rounded bg-dark-soft border-start border-3 border-primary">
-          <h4 className="h5 mb-3 text-light">
-            <FontAwesomeIcon icon={faShieldAlt} className="me-2" />{" "}
-            Professional Values
-          </h4>
-          <p className="mb-0 text-light-emphasis">
-            I believe in{" "}
-            <strong style={{ color: "#343a40" }}>
-              security-first design
-            </strong>
-            ,{" "}
-            <strong style={{ color: "#343a40" }}>
-              automation excellence
-            </strong>
-            , and
-            <strong style={{ color: "#343a40" }}>
-              {" "}
-              continuous improvement
-            </strong>{" "}
-            to deliver identity solutions that protect while enabling
-            business growth.
-          </p>
-        </div>
-        <div className="mt-4 d-flex flex-column flex-sm-row gap-3 align-items-stretch">
-          <div className="d-flex flex-column flex-sm-row gap-3 flex-grow-1">
-            <a 
-              href="#contact" 
-              className="btn btn-secondary btn-lg px-4 flex-grow-1 text-center"
-            >
-              Contact Me
-            </a>
-            <a 
-              href="#project" 
-              className="btn btn-outline-light btn-lg px-4 flex-grow-1 text-center"
-            >
-              View Projects
-            </a>
+      <section id="about" className="hero-section py-5 bg-gradient-primary">
+        <div className="container py-5">
+          <div className="row align-items-center">
+            <div className="col-lg-8 pe-lg-5">
+              <h1 className="display-4 fw-bold mb-4">
+                <span className="text-highlight">Hello, I'm</span>{" "}
+                <span style={{ color: "#343a40" }}>Thilagavathi MC</span>
+              </h1>
+              <p className="lead mb-4 text-light-emphasis">
+                <span className="badge bg-primary-gradient fs-6 fw-normal mb-3">
+                  Identity & Access Management Engineer
+                </span>
+              </p>
+              <p className="mb-4 fs-5">
+                I am an IAM Engineer with two years of experience in identity
+                lifecycle management, automation, and secure access control. I
+                specialize in IAM automation, user provisioning, and API
+                integrations. Alongside my IAM expertise, I have Full Stack
+                Development skills, enabling me to build secure, scalable
+                applications that integrate seamlessly with identity solutions.
+              </p>
+              <div className="values-box p-4 rounded bg-dark-soft border-start border-3 border-primary">
+                <h4 className="h5 mb-3 text-light">
+                  <FontAwesomeIcon icon={faShieldAlt} className="me-2" />{" "}
+                  Professional Values
+                </h4>
+                <p className="mb-0 text-light-emphasis">
+                  I believe in{" "}
+                  <strong style={{ color: "#343a40" }}>
+                    security-first design
+                  </strong>
+                  ,{" "}
+                  <strong style={{ color: "#343a40" }}>
+                    automation excellence
+                  </strong>
+                  , and
+                  <strong style={{ color: "#343a40" }}>
+                    {" "}
+                    continuous improvement
+                  </strong>{" "}
+                  to deliver identity solutions that protect while enabling
+                  business growth.
+                </p>
+              </div>
+              <div className="mt-4 d-flex flex-column flex-sm-row gap-3 align-items-stretch">
+                <div className="d-flex flex-column flex-sm-row gap-3 flex-grow-1">
+                  <a
+                    href="#contact"
+                    className="btn btn-secondary btn-lg px-4 flex-grow-1 text-center"
+                  >
+                    Contact Me
+                  </a>
+                  <a
+                    href="#project"
+                    className="btn btn-outline-light btn-lg px-4 flex-grow-1 text-center"
+                  >
+                    View Projects
+                  </a>
+                </div>
+                <a
+                  href="/documents/Thilagavathi_MC_Resume.pdf"
+                  download="Thilagavathi_MC_Resume.pdf"
+                  className="btn btn-primary btn-lg px-4 text-center"
+                >
+                  Download Resume
+                </a>
+              </div>
+            </div>
+            <div className="col-lg-4 mt-5 mt-lg-0 text-center">
+              <div className="profile-frame position-relative">
+                <img
+                  src={profilePic}
+                  alt="Thilagavathi MC"
+                  className="profile-img img-fluid rounded-4 shadow-lg"
+                />
+                <div
+                  className="position-absolute top-0 start-0 w-100 h-100 border border-3 border-primary rounded-4"
+                  style={{ zIndex: -1, transform: "translate(15px, 15px)" }}
+                ></div>
+              </div>
+            </div>
           </div>
-          <a 
-            href="/documents/Thilagavathi_MC_Resume.pdf" 
-            download="Thilagavathi_MC_Resume.pdf"
-            className="btn btn-primary btn-lg px-4 text-center"
-          >
-            Download Resume
-          </a>
         </div>
-      </div>
-      <div className="col-lg-4 mt-5 mt-lg-0 text-center">
-        <div className="profile-frame position-relative">
-          <img
-            src={profilePic}
-            alt="Thilagavathi MC"
-            className="profile-img img-fluid rounded-4 shadow-lg"
-          />
-          <div
-            className="position-absolute top-0 start-0 w-100 h-100 border border-3 border-primary rounded-4"
-            style={{ zIndex: -1, transform: "translate(15px, 15px)" }}
-          ></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* IAM Skills Section */}
       <section id="iam-skills" className="py-5 bg-light">
@@ -1605,92 +1608,101 @@ const handleSubmit = async (e) => {
                 </div>
 
                 <div className="col-md-7">
-  <div className="card h-100 border-0 shadow-sm">
-    <div className="card-body p-4">
-      <h4 className="card-title mb-4 text-primary">
-        Send a Message
-      </h4>
-      
-      {/* Alert notification */}
-      {alert.show && (
-        <div className={`alert alert-${alert.variant} alert-dismissible fade show`} role="alert">
-          {alert.message}
-          <button type="button" className="btn-close" onClick={() => setAlert({ show: false })}></button>
-        </div>
-      )}
-      
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">
-            Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="userName"
-            value={formData.userName}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="subject" className="form-label">
-            Subject
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="message" className="form-label">
-            Message
-          </label>
-          <textarea
-            className="form-control"
-            id="message"
-            rows="4"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="btn btn-primary w-100 py-2 fw-bold"
-          disabled={isLoading}
-        >
-          {isLoading ? (
-            <>
-              <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-              Processing...
-            </>
-          ) : (
-            "Send Message"
-          )}
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
+                  <div className="card h-100 border-0 shadow-sm">
+                    <div className="card-body p-4">
+                      <h4 className="card-title mb-4 text-primary">
+                        Send a Message
+                      </h4>
 
+                      {/* Alert notification */}
+                      {alert.show && (
+                        <div
+                          className={`alert alert-${alert.variant} alert-dismissible fade show`}
+                          role="alert"
+                        >
+                          {alert.message}
+                          <button
+                            type="button"
+                            className="btn-close"
+                            onClick={() => setAlert({ show: false })}
+                          ></button>
+                        </div>
+                      )}
 
+                      <form onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                          <label htmlFor="name" className="form-label">
+                            Name
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="userName"
+                            value={formData.userName}
+                            onChange={handleChange}
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="email" className="form-label">
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="subject" className="form-label">
+                            Subject
+                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="message" className="form-label">
+                            Message
+                          </label>
+                          <textarea
+                            className="form-control"
+                            id="message"
+                            rows="4"
+                            value={formData.message}
+                            onChange={handleChange}
+                            required
+                          ></textarea>
+                        </div>
+                        <button
+                          type="submit"
+                          className="btn btn-primary w-100 py-2 fw-bold"
+                          disabled={isLoading}
+                        >
+                          {isLoading ? (
+                            <>
+                              <span
+                                className="spinner-border spinner-border-sm me-2"
+                                role="status"
+                                aria-hidden="true"
+                              ></span>
+                              Processing...
+                            </>
+                          ) : (
+                            "Send Message"
+                          )}
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
