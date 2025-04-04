@@ -171,81 +171,90 @@ const handleSubmit = async (e) => {
       </nav>
 
       {/* Hero Section */}
-      <section id="about" className="hero-section py-5 bg-gradient-primary">
-        <div className="container py-5">
-          <div className="row align-items-center">
-            <div className="col-lg-8 pe-lg-5">
-              <h1 className="display-4 fw-bold mb-4">
-                <span className="text-highlight">Hello, I'm</span>{" "}
-                <span style={{ color: "#343a40" }}>Thilagavathi MC</span>
-              </h1>
-              <p className="lead mb-4 text-light-emphasis">
-                <span className="badge bg-primary-gradient fs-6 fw-normal mb-3">
-                  Identity & Access Management Engineer
-                </span>
-              </p>
-              <p className="mb-4 fs-5">
-                I am an IAM Engineer with two years of experience in identity
-                lifecycle management, automation, and secure access control. I
-                specialize in IAM automation, user provisioning, and API
-                integrations. Alongside my IAM expertise, I have Full Stack
-                Development skills, enabling me to build secure, scalable
-                applications that integrate seamlessly with identity solutions.{" "}
-              </p>
-              <div className="values-box p-4 rounded bg-dark-soft border-start border-3 border-primary">
-                <h4 className="h5 mb-3 text-light">
-                  <FontAwesomeIcon icon={faShieldAlt} className="me-2" />{" "}
-                  Professional Values
-                </h4>
-                <p className="mb-0 text-light-emphasis">
-                  I believe in{" "}
-                  <strong style={{ color: "#343a40" }}>
-                    security-first design
-                  </strong>
-                  ,{" "}
-                  <strong style={{ color: "#343a40" }}>
-                    automation excellence
-                  </strong>
-                  , and
-                  <strong style={{ color: "#343a40" }}>
-                    {" "}
-                    continuous improvement
-                  </strong>{" "}
-                  to deliver identity solutions that protect while enabling
-                  business growth.
-                </p>
-              </div>
-              <div className="mt-4">
-                <a
-                  href="#contact"
-                  className="btn btn-secondary btn-lg px-4 me-3"
-                >
-                  Contact Me
-                </a>
-                <a
-                  href="#project"
-                  className="btn btn-outline-light btn-lg px-4"
-                >
-                  View Projects
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-4 mt-5 mt-lg-0 text-center">
-              <div className="profile-frame position-relative">
-                <img
-                  src={profilePic}
-                  alt="Thilagavathi MC"
-                  className="profile-img img-fluid rounded-4 shadow-lg"
-                />
-                <div
-                  className="position-absolute top-0 start-0 w-100 h-100 border border-3 border-primary rounded-4"
-                  style={{ zIndex: -1, transform: "translate(15px, 15px)" }}
-                ></div>
-              </div>
-            </div>
-          </div>
+<section id="about" className="hero-section py-5 bg-gradient-primary">
+  <div className="container py-5">
+    <div className="row align-items-center">
+      <div className="col-lg-8 pe-lg-5">
+        <h1 className="display-4 fw-bold mb-4">
+          <span className="text-highlight">Hello, I'm</span>{" "}
+          <span style={{ color: "#343a40" }}>Thilagavathi MC</span>
+        </h1>
+        <p className="lead mb-4 text-light-emphasis">
+          <span className="badge bg-primary-gradient fs-6 fw-normal mb-3">
+            Identity & Access Management Engineer
+          </span>
+        </p>
+        <p className="mb-4 fs-5">
+          I am an IAM Engineer with two years of experience in identity
+          lifecycle management, automation, and secure access control. I
+          specialize in IAM automation, user provisioning, and API
+          integrations. Alongside my IAM expertise, I have Full Stack
+          Development skills, enabling me to build secure, scalable
+          applications that integrate seamlessly with identity solutions.
+        </p>
+        <div className="values-box p-4 rounded bg-dark-soft border-start border-3 border-primary">
+          <h4 className="h5 mb-3 text-light">
+            <FontAwesomeIcon icon={faShieldAlt} className="me-2" />{" "}
+            Professional Values
+          </h4>
+          <p className="mb-0 text-light-emphasis">
+            I believe in{" "}
+            <strong style={{ color: "#343a40" }}>
+              security-first design
+            </strong>
+            ,{" "}
+            <strong style={{ color: "#343a40" }}>
+              automation excellence
+            </strong>
+            , and
+            <strong style={{ color: "#343a40" }}>
+              {" "}
+              continuous improvement
+            </strong>{" "}
+            to deliver identity solutions that protect while enabling
+            business growth.
+          </p>
         </div>
-      </section>
+        <div className="mt-4 d-flex flex-column flex-sm-row gap-3 align-items-stretch">
+          <div className="d-flex flex-column flex-sm-row gap-3 flex-grow-1">
+            <a 
+              href="#contact" 
+              className="btn btn-secondary btn-lg px-4 flex-grow-1 text-center"
+            >
+              Contact Me
+            </a>
+            <a 
+              href="#project" 
+              className="btn btn-outline-light btn-lg px-4 flex-grow-1 text-center"
+            >
+              View Projects
+            </a>
+          </div>
+          <a 
+            href="/documents/Thilagavathi_MC_Resume.pdf" 
+            download="Thilagavathi_MC_Resume.pdf"
+            className="btn btn-primary btn-lg px-4 text-center"
+          >
+            Download Resume
+          </a>
+        </div>
+      </div>
+      <div className="col-lg-4 mt-5 mt-lg-0 text-center">
+        <div className="profile-frame position-relative">
+          <img
+            src={profilePic}
+            alt="Thilagavathi MC"
+            className="profile-img img-fluid rounded-4 shadow-lg"
+          />
+          <div
+            className="position-absolute top-0 start-0 w-100 h-100 border border-3 border-primary rounded-4"
+            style={{ zIndex: -1, transform: "translate(15px, 15px)" }}
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* IAM Skills Section */}
       <section id="iam-skills" className="py-5 bg-light">
