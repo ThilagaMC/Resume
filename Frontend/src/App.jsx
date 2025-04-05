@@ -220,7 +220,7 @@ function App() {
               </div>
 
               <div className="mt-4 btn-group-hero">
-  <a href="#contact" className="btn btn-hero btn-hero-secondary">
+  <a href="#contact" className="btn btn-hero btn-hero-primary">
     Contact Me
   </a>
   <a href="#project" className="btn btn-hero btn-hero-outline">
@@ -1127,6 +1127,7 @@ function App() {
           <div className="mb-5">
             <h4 className="mb-4 pb-2 border-bottom">IAM Projects</h4>
             <div className="accordion" id="iamProjectsAccordion">
+              
               {/* Project 1 */}
               <div className="accordion-item mb-3 border-0 shadow-sm">
                 <h2 className="accordion-header" id="headingOne">
@@ -1408,6 +1409,7 @@ function App() {
           {/* Full Stack Projects Section */}
           <div>
             <h4 className="mb-4 pb-2 border-bottom">Full Stack Projects</h4>
+
             <div className="row g-4">
               {/* Project 1 */}
               <div className="col-md-4">
@@ -1511,6 +1513,7 @@ function App() {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
