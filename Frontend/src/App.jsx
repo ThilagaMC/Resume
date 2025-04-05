@@ -121,6 +121,7 @@ function App() {
     <>
       {/* Navigation Bar */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
         <div className="container">
           <a className="navbar-brand fw-bold fs-3" href="#">
             <span style={{ color: "#37759e" }}>Thilagavathi</span> MC
@@ -171,10 +172,12 @@ function App() {
             </ul>
           </div>
         </div>
+
       </nav>
 
       {/* Hero Section */}
       <section id="about" className="hero-section py-5 bg-gradient-primary">
+
         <div className="container py-5">
           <div className="row align-items-center">
             <div className="col-lg-8 pe-lg-5">
@@ -251,11 +254,13 @@ function App() {
             </div>
           </div>
         </div>
+
       </section>
 
       {/* IAM Skills Section */}
       <section id="iam-skills" className="py-5 bg-light">
         <div className="container py-4">
+
           <div className="section-header text-center mb-5">
             <h2 className="display-5 fw-bold mb-3">IAM Expertise</h2>
             <p className="lead text-muted">
@@ -422,13 +427,17 @@ function App() {
                 </div>
               </div>
             </div>
+
           </div>
+
         </div>
       </section>
 
       {/* Development Skills Section */}
       <section id="dev-skills" className="py-5 bg-white">
+
         <div className="container py-4">
+
           <div className="section-header text-center mb-5">
             <h2 className="display-5 fw-bold mb-3">Technical Skills</h2>
             <p className="lead text-muted">
@@ -493,6 +502,7 @@ function App() {
               aria-labelledby="frontend-tab"
             >
               <div className="row g-4">
+
                 <div className="col-md-6 col-lg-3">
                   <div className="card h-100 skill-card border-0 shadow-sm hover-lift">
                     <div className="card-body text-center p-4">
@@ -580,6 +590,7 @@ function App() {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -590,6 +601,7 @@ function App() {
               aria-labelledby="backend-tab"
             >
               <div className="row g-4">
+                
                 <div className="col-md-6 col-lg-3">
                   <div className="card h-100 skill-card border-0 shadow-sm hover-lift">
                     <div className="card-body text-center p-4">
@@ -683,6 +695,7 @@ function App() {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
 
@@ -780,6 +793,7 @@ function App() {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -788,6 +802,7 @@ function App() {
 
       {/* Tools Section */}
       <section id="tools" className="py-5 bg-light">
+
         <div className="container py-4">
           <div className="section-header text-center mb-5">
             <h2 className="display-5 fw-bold mb-3">IAM Tools & Technologies</h2>
@@ -1111,10 +1126,12 @@ function App() {
             </div>
           </div>
         </div>
+
       </section>
 
       {/* Projects Section */}
       <section id="project" className="py-5 bg-white">
+
         <div className="container py-4">
           <div className="section-header text-center mb-5">
             <h2 className="display-5 fw-bold mb-3">Professional Projects</h2>
@@ -1517,11 +1534,13 @@ function App() {
             </div>
           </div>
         </div>
+
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-5 bg-light">
         <div className="container py-4">
+
           <div className="section-header text-center mb-5">
             <h2 className="display-5 fw-bold mb-3">Get In Touch</h2>
             <p className="lead text-muted">
@@ -1703,11 +1722,13 @@ function App() {
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
       {/* Footer */}
       <footer className="bg-dark text-white py-5">
+
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6 mb-3 mb-md-0">
@@ -1745,6 +1766,7 @@ function App() {
             </div>
           </div>
         </div>
+
       </footer>
     </>
   );
