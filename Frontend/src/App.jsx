@@ -223,7 +223,7 @@ function App() {
   <a href="#contact" className="btn btn-hero btn-hero-primary">
     Contact Me
   </a>
-  <a href="#project" className="btn btn-hero btn-hero-outline">
+  <a href="#project" className="btn btn-hero btn-hero-primary">
     View Projects
   </a>
   <a 
