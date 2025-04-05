@@ -14,11 +14,8 @@ import {
   faShieldAlt,
   faSyncAlt,
   faCogs,
-  faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { useState, useEffect } from "react";
-import axios from "axios";
 
 // Import all images
 import profilePic from "/Pictures/IMG_7609.JPG";
@@ -46,6 +43,8 @@ import workflowIcon from "../Pictures/workflow.png";
 import powerAutomateIcon from "../Pictures/PA.png";
 import gitIcon from "../Pictures/Git.png";
 import postmanIcon from "../Pictures/PostMan.png";
+import { useState } from "react";
+import axios from "axios";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -55,18 +54,7 @@ function App() {
     message: "",
   });
 
-  const [alert, setAlert] = useState({ show: false, message: "", variant: "" });
-  const [isLoading, setIsLoading] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  // Handle input changes
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevState) => ({
@@ -75,6 +63,12 @@ function App() {
     }));
   };
 
+  // Handle form submission
+  // Add state for alert and loading
+  const [alert, setAlert] = useState({ show: false, message: "", variant: "" });
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -86,6 +80,7 @@ function App() {
       );
       console.log("Response:", response.data);
 
+      // Show success alert
       setAlert({
         show: true,
         message: "Message sent successfully!",
@@ -97,6 +92,7 @@ function App() {
         error.response ? error.response.data : error.message
       );
 
+      // Show error alert
       setAlert({
         show: true,
         message:
@@ -106,6 +102,8 @@ function App() {
       });
     } finally {
       setIsLoading(false);
+
+      // Reset form
       setFormData({
         userName: "",
         email: "",
@@ -113,19 +111,19 @@ function App() {
         message: "",
       });
 
+      // Hide alert after 5 seconds
       setTimeout(() => {
         setAlert({ show: false, message: "", variant: "" });
       }, 5000);
     }
   };
-
   return (
     <>
       {/* Navigation Bar */}
-      <nav className={`navbar navbar-expand-lg navbar-dark bg-dark fixed-top ${scrolled ? "scrolled" : ""}`}>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div className="container">
           <a className="navbar-brand fw-bold fs-3" href="#">
-            <span className="text-primary">Thilagavathi</span> MC
+            <span style={{ color: "#37759e" }}>Thilagavathi</span> MC
           </a>
           <button
             className="navbar-toggler"
@@ -176,13 +174,13 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="about" className="hero-section py-5">
+      <section id="about" className="hero-section py-5 bg-gradient-primary">
         <div className="container py-5">
           <div className="row align-items-center">
             <div className="col-lg-8 pe-lg-5">
               <h1 className="display-4 fw-bold mb-4">
                 <span className="text-highlight">Hello, I'm</span>{" "}
-                <span className="text-dark">Thilagavathi MC</span>
+                <span style={{ color: "#343a40" }}>Thilagavathi MC</span>
               </h1>
               <p className="lead mb-4 text-light-emphasis">
                 <span className="badge bg-primary-gradient fs-6 fw-normal mb-3">
@@ -204,30 +202,39 @@ function App() {
                 </h4>
                 <p className="mb-0 text-light-emphasis">
                   I believe in{" "}
-                  <strong className="text-white">security-first design</strong>,{" "}
-                  <strong className="text-white">automation excellence</strong>, and{" "}
-                  <strong className="text-white">continuous improvement</strong>{" "}
+                  <strong style={{ color: "#343a40" }}>
+                    security-first design
+                  </strong>
+                  ,{" "}
+                  <strong style={{ color: "#343a40" }}>
+                    automation excellence
+                  </strong>
+                  , and
+                  <strong style={{ color: "#343a40" }}>
+                    {" "}
+                    continuous improvement
+                  </strong>{" "}
                   to deliver identity solutions that protect while enabling
                   business growth.
                 </p>
               </div>
 
               <div className="mt-4 btn-group-hero">
-                <a href="#contact" className="btn btn-hero btn-hero-secondary">
-                  Contact Me
-                </a>
-                <a href="#project" className="btn btn-hero btn-hero-outline">
-                  View Projects
-                </a>
-                <a 
-                  href="/Thilagavathi-Resume.pdf" 
-                  download="Thilagavathi_Resume.pdf"
-                  className="btn btn-hero btn-hero-primary"
-                >
-                  <FontAwesomeIcon icon={faDownload} className="me-2" />
-                  Download Resume
-                </a>
-              </div>
+  <a href="#contact" className="btn btn-hero btn-hero-secondary">
+    Contact Me
+  </a>
+  <a href="#project" className="btn btn-hero btn-hero-outline">
+    View Projects
+  </a>
+  <a 
+    href="../public/Thilagavathi - Resume.pdf" 
+    download="Thilagavathi_Resume.pdf"
+    className="btn btn-hero btn-hero-primary"
+  >
+    Download Resume
+  </a>
+</div>
+
             </div>
             <div className="col-lg-4 mt-5 mt-lg-0 text-center">
               <div className="profile-frame position-relative">
@@ -794,17 +801,40 @@ function App() {
             className="carousel slide"
             data-bs-ride="carousel"
           >
+            {/* Carousel Indicators */}
             <div className="carousel-indicators">
-              {[0, 1, 2, 3, 4, 5].map((index) => (
-                <button
-                  key={index}
-                  type="button"
-                  data-bs-target="#toolsCarousel"
-                  data-bs-slide-to={index}
-                  className={index === 0 ? "active" : ""}
-                  aria-current={index === 0 ? "true" : "false"}
-                ></button>
-              ))}
+              <button
+                type="button"
+                data-bs-target="#toolsCarousel"
+                data-bs-slide-to="0"
+                className="active"
+                aria-current="true"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#toolsCarousel"
+                data-bs-slide-to="1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#toolsCarousel"
+                data-bs-slide-to="2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#toolsCarousel"
+                data-bs-slide-to="3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#toolsCarousel"
+                data-bs-slide-to="4"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#toolsCarousel"
+                data-bs-slide-to="5"
+              ></button>
             </div>
 
             <div className="carousel-inner rounded-4 overflow-hidden">
@@ -1020,6 +1050,7 @@ function App() {
               </div>
             </div>
 
+            {/* Carousel Controls */}
             <button
               className="carousel-control-prev"
               type="button"
@@ -1046,6 +1077,7 @@ function App() {
             </button>
           </div>
 
+          {/* Protocols Section Below Carousel */}
           <div className="mt-5 pt-4 text-center">
             <h4 className="mb-4 fw-bold">IAM Protocols & Standards</h4>
             <div className="d-flex flex-wrap justify-content-center gap-2">
@@ -1091,182 +1123,394 @@ function App() {
             </p>
           </div>
 
+          {/* IAM Projects Section */}
           <div className="mb-5">
             <h4 className="mb-4 pb-2 border-bottom">IAM Projects</h4>
             <div className="accordion" id="iamProjectsAccordion">
-              {[
-                {
-                  id: "collapseOne",
-                  heading: "headingOne",
-                  icon: faUserShield,
-                  title: "User Lifecycle Management Automation",
-                  overview: "Designed and implemented an automated user lifecycle management system for a multinational corporation with 2,000+ employees, reducing manual provisioning tasks by 80% and improving security through timely deprovisioning.",
-                  achievements: [
-                    "Integrated with HRIS systems for real-time user status updates",
-                    "Implemented automated access certification campaigns",
-                    "Reduced onboarding time from 48 hours to under 2 hours",
-                    "Achieved 99.9% accuracy in access provisioning"
-                  ],
-                  badges: ["Okta Workflows", "SCIM", "PowerShell", "REST APIs"]
-                },
-                {
-                  id: "collapseTwo",
-                  heading: "headingTwo",
-                  icon: faUsers,
-                  title: "Customer Identity Solution",
-                  overview: "Architected and deployed a customer identity and access management (CIAM) platform for a B2C e-commerce application serving 50,000+ users, enabling seamless customer experiences while maintaining strict security controls.",
-                  achievements: [
-                    "Implemented social login with Google, Facebook, and Apple",
-                    "Developed progressive profiling to improve conversion rates",
-                    "Reduced password reset tickets by 75% with self-service flows",
-                    "Implemented risk-based authentication to reduce fraud"
-                  ],
-                  badges: ["OAuth 2.0", "SAML", "MFA", "Okta"]
-                },
-                {
-                  id: "collapseThree",
-                  heading: "headingThree",
-                  icon: faKey,
-                  title: "Enterprise Password Management",
-                  overview: "Led the enterprise-wide deployment of 1Password for Business across a 500-employee organization, implementing secure password management practices and reducing credential compromise incidents by 90%.",
-                  achievements: [
-                    "Implemented SCIM provisioning for automated user management",
-                    "Created role-based access controls for sensitive vaults",
-                    "Developed automated provisioning workflows",
-                    "Conducted security training for all employees"
-                  ],
-                  badges: ["1Password", "SCIM", "Training", "RBAC"]
-                },
-                {
-                  id: "collapseFour",
-                  heading: "headingFour",
-                  icon: faRobot,
-                  title: "IAM Process Automation",
-                  overview: "Spearheaded the automation of critical IAM processes across multiple environments, eliminating manual intervention and reducing operational overhead by 65% while improving compliance with audit requirements.",
-                  achievements: [
-                    "Automated user deactivation across non-production environments",
-                    "Implemented self-service role and access request workflows",
-                    "Created automated distribution list management",
-                    "Developed shared mailbox provisioning automation"
-                  ],
-                  badges: ["PowerShell", "Okta Workflows", "Power Automate", "Graph API"]
-                }
-              ].map((project, index) => (
-                <div key={project.id} className="accordion-item mb-3 border-0 shadow-sm">
-                  <h2 className="accordion-header" id={project.heading}>
-                    <button
-                      className="accordion-button collapsed py-3 fw-bold"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target={`#${project.id}`}
-                      aria-expanded="false"
-                      aria-controls={project.id}
-                    >
-                      <FontAwesomeIcon
-                        icon={project.icon}
-                        className="me-3 text-primary"
-                      />
-                      {project.title}
-                    </button>
-                  </h2>
-                  <div
-                    id={project.id}
-                    className="accordion-collapse collapse"
-                    aria-labelledby={project.heading}
-                    data-bs-parent="#iamProjectsAccordion"
+              {/* Project 1 */}
+              <div className="accordion-item mb-3 border-0 shadow-sm">
+                <h2 className="accordion-header" id="headingOne">
+                  <button
+                    className="accordion-button collapsed py-3 fw-bold"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="false"
+                    aria-controls="collapseOne"
                   >
-                    <div className="accordion-body bg-light">
-                      <h5 className="mb-3">Project Overview</h5>
-                      <p className="mb-4">{project.overview}</p>
+                    <FontAwesomeIcon
+                      icon={faUserShield}
+                      className="me-3 text-primary"
+                    />
+                    User Lifecycle Management Automation
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#iamProjectsAccordion"
+                >
+                  <div className="accordion-body bg-light">
+                    <h5 className="mb-3">Project Overview</h5>
+                    <p className="mb-4">
+                      Designed and implemented an automated user lifecycle
+                      management system for a multinational corporation with
+                      2,000+ employees, reducing manual provisioning tasks by
+                      80% and improving security through timely deprovisioning.
+                    </p>
 
-                      <h5 className="mb-3">Key Achievements</h5>
-                      <ul className="mb-4">
-                        {project.achievements.map((achievement, i) => (
-                          <li key={i} className="mb-2">{achievement}</li>
-                        ))}
-                      </ul>
+                    <h5 className="mb-3">Key Achievements</h5>
+                    <ul className="mb-4">
+                      <li className="mb-2">
+                        Integrated with HRIS systems for real-time user status
+                        updates
+                      </li>
+                      <li className="mb-2">
+                        Implemented automated access certification campaigns
+                      </li>
+                      <li className="mb-2">
+                        Reduced onboarding time from 48 hours to under 2 hours
+                      </li>
+                      <li className="mb-2">
+                        Achieved 99.9% accuracy in access provisioning
+                      </li>
+                    </ul>
 
-                      <div className="d-flex flex-wrap gap-2">
-                        {project.badges.map((badge, i) => (
-                          <span key={i} className="badge bg-primary-gradient py-2 px-3">
-                            {badge}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="d-flex flex-wrap gap-2">
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        Okta Workflows
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        SCIM
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        PowerShell
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        REST APIs
+                      </span>
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Project 2 */}
+              <div className="accordion-item mb-3 border-0 shadow-sm">
+                <h2 className="accordion-header" id="headingTwo">
+                  <button
+                    className="accordion-button collapsed py-3 fw-bold"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    <FontAwesomeIcon
+                      icon={faUsers}
+                      className="me-3 text-primary"
+                    />
+                    Customer Identity Solution
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="headingTwo"
+                  data-bs-parent="#iamProjectsAccordion"
+                >
+                  <div className="accordion-body bg-light">
+                    <h5 className="mb-3">Project Overview</h5>
+                    <p className="mb-4">
+                      Architected and deployed a customer identity and access
+                      management (CIAM) platform for a B2C e-commerce
+                      application serving 50,000+ users, enabling seamless
+                      customer experiences while maintaining strict security
+                      controls.
+                    </p>
+
+                    <h5 className="mb-3">Key Achievements</h5>
+                    <ul className="mb-4">
+                      <li className="mb-2">
+                        Implemented social login with Google, Facebook, and
+                        Apple
+                      </li>
+                      <li className="mb-2">
+                        Developed progressive profiling to improve conversion
+                        rates
+                      </li>
+                      <li className="mb-2">
+                        Reduced password reset tickets by 75% with self-service
+                        flows
+                      </li>
+                      <li className="mb-2">
+                        Implemented risk-based authentication to reduce fraud
+                      </li>
+                    </ul>
+
+                    <div className="d-flex flex-wrap gap-2">
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        OAuth 2.0
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        SAML
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        MFA
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        Okta
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project 3 */}
+              <div className="accordion-item mb-3 border-0 shadow-sm">
+                <h2 className="accordion-header" id="headingThree">
+                  <button
+                    className="accordion-button collapsed py-3 fw-bold"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    <FontAwesomeIcon
+                      icon={faKey}
+                      className="me-3 text-primary"
+                    />
+                    Enterprise Password Management
+                  </button>
+                </h2>
+                <div
+                  id="collapseThree"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="headingThree"
+                  data-bs-parent="#iamProjectsAccordion"
+                >
+                  <div className="accordion-body bg-light">
+                    <h5 className="mb-3">Project Overview</h5>
+                    <p className="mb-4">
+                      Led the enterprise-wide deployment of 1Password for
+                      Business across a 500-employee organization, implementing
+                      secure password management practices and reducing
+                      credential compromise incidents by 90%.
+                    </p>
+
+                    <h5 className="mb-3">Key Achievements</h5>
+                    <ul className="mb-4">
+                      <li className="mb-2">
+                        Implemented SCIM provisioning for automated user
+                        management
+                      </li>
+                      <li className="mb-2">
+                        Created role-based access controls for sensitive vaults
+                      </li>
+                      <li className="mb-2">
+                        Developed automated provisioning workflows
+                      </li>
+                      <li className="mb-2">
+                        Conducted security training for all employees
+                      </li>
+                    </ul>
+
+                    <div className="d-flex flex-wrap gap-2">
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        1Password
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        SCIM
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        Training
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        RBAC
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project 4 */}
+              <div className="accordion-item border-0 shadow-sm">
+                <h2 className="accordion-header" id="headingFour">
+                  <button
+                    className="accordion-button collapsed py-3 fw-bold"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour"
+                    aria-expanded="false"
+                    aria-controls="collapseFour"
+                  >
+                    <FontAwesomeIcon
+                      icon={faRobot}
+                      className="me-3 text-primary"
+                    />
+                    IAM Process Automation
+                  </button>
+                </h2>
+                <div
+                  id="collapseFour"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="headingFour"
+                  data-bs-parent="#iamProjectsAccordion"
+                >
+                  <div className="accordion-body bg-light">
+                    <h5 className="mb-3">Project Overview</h5>
+                    <p className="mb-4">
+                      Spearheaded the automation of critical IAM processes
+                      across multiple environments, eliminating manual
+                      intervention and reducing operational overhead by 65%
+                      while improving compliance with audit requirements.
+                    </p>
+
+                    <h5 className="mb-3">Key Achievements</h5>
+                    <ul className="mb-4">
+                      <li className="mb-2">
+                        Automated user deactivation across non-production
+                        environments
+                      </li>
+                      <li className="mb-2">
+                        Implemented self-service role and access request
+                        workflows
+                      </li>
+                      <li className="mb-2">
+                        Created automated distribution list management
+                      </li>
+                      <li className="mb-2">
+                        Developed shared mailbox provisioning automation
+                      </li>
+                    </ul>
+
+                    <div className="d-flex flex-wrap gap-2">
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        PowerShell
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        Okta Workflows
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        Power Automate
+                      </span>
+                      <span className="badge bg-primary-gradient py-2 px-3">
+                        Graph API
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
+          {/* Full Stack Projects Section */}
           <div>
             <h4 className="mb-4 pb-2 border-bottom">Full Stack Projects</h4>
             <div className="row g-4">
-              {[
-                {
-                  title: "CrewConnect - Employee Portal",
-                  description: "A comprehensive employee portal for tracking attendance, tasks, leave requests, and other HR-related functions with real-time updates.",
-                  badges: ["React", "Node.js", "Express JS", "MongoDB"],
-                  link: "https://crewconnect-employeeportal.netlify.app",
-                  linkText: "Live Demo"
-                },
-                {
-                  title: "Portfolio Website",
-                  description: "A modern responsive portfolio showcasing IAM expertise and full-stack projects, featuring interactive elements and clean design.",
-                  badges: ["React", "Bootstrap", "Netlify"],
-                  link: "https://fantastic-piroshki-971829.netlify.app/",
-                  linkText: "Live Demo"
-                },
-                {
-                  title: "Mini Projects Collection",
-                  description: "Explore various small-scale projects and code experiments demonstrating different aspects of web development and problem-solving skills.",
-                  badges: ["React", "JavaScript", "HTML/CSS"],
-                  link: "https://github.com/ThilagaMC",
-                  linkText: "View My GitHub",
-                  github: true
-                }
-              ].map((project, index) => (
-                <div key={index} className="col-md-4">
-                  <div className="card h-100 border-0 shadow-sm">
-                    <div className="card-header bg-white border-bottom-0 py-3">
-                      <strong>{project.title}</strong>
+              {/* Project 1 */}
+              <div className="col-md-4">
+                <div className="card h-100 border-0 shadow-sm">
+                  <div className="card-header bg-white border-bottom-0 py-3">
+                    <strong>CrewConnect - Employee Portal</strong>
+                  </div>
+                  <div className="card-body d-flex flex-column">
+                    <p className="card-text">
+                      A comprehensive employee portal for tracking attendance,
+                      tasks, leave requests, and other HR-related functions with
+                      real-time updates.
+                    </p>
+                    <div className="mt-auto">
+                      <div className="d-flex flex-wrap gap-2 mb-3">
+                        <span className="badge bg-secondary py-2">React</span>
+                        <span className="badge bg-secondary py-2">Node.js</span>
+                        <span className="badge bg-secondary py-2">
+                          Express JS
+                        </span>
+                        <span className="badge bg-secondary py-2">MongoDB</span>
+                      </div>
+                      <a
+                        href="https://crewconnect-employeeportal.netlify.app"
+                        className="btn btn-primary w-100"
+                      >
+                        Live Demo
+                      </a>
                     </div>
-                    <div className="card-body d-flex flex-column">
-                      <p className="card-text">{project.description}</p>
-                      <div className="mt-auto">
-                        <div className="d-flex flex-wrap gap-2 mb-3">
-                          {project.badges.map((badge, i) => (
-                            <span key={i} className="badge bg-secondary py-2">{badge}</span>
-                          ))}
-                        </div>
-                        {project.github ? (
-                          <div className="d-grid gap-2">
-                            <a
-                              href={project.link}
-                              className="btn btn-primary w-100"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <FontAwesomeIcon icon={faGithub} className="me-2" />
-                              {project.linkText}
-                            </a>
-                          </div>
-                        ) : (
-                          <a
-                            href={project.link}
-                            className="btn btn-primary w-100"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {project.linkText}
-                          </a>
-                        )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Project 2 */}
+              <div className="col-md-4">
+                <div className="card h-100 border-0 shadow-sm">
+                  <div className="card-header bg-white border-bottom-0 py-3">
+                    <strong>Portfolio Website</strong>
+                  </div>
+                  <div className="card-body d-flex flex-column">
+                    <p className="card-text">
+                      A modern responsive portfolio showcasing IAM expertise and
+                      full-stack projects, featuring interactive elements and
+                      clean design.
+                    </p>
+                    <div className="mt-auto">
+                      <div className="d-flex flex-wrap gap-2 mb-3">
+                        <span className="badge bg-secondary py-2">React</span>
+                        <span className="badge bg-secondary py-2">
+                          Bootstrap
+                        </span>
+                        <span className="badge bg-secondary py-2">Netlify</span>
+                      </div>
+                      <a
+                        href="https://fantastic-piroshki-971829.netlify.app/"
+                        className="btn btn-primary w-100"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live Demo
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project 3 */}
+              <div className="col-md-4">
+                <div className="card h-100 border-0 shadow-sm">
+                  <div className="card-header bg-white border-bottom-0 py-3">
+                    <strong>Mini Projects Collection</strong>
+                  </div>
+                  <div className="card-body d-flex flex-column">
+                    <p className="card-text">
+                      Explore various small-scale projects and code experiments
+                      demonstrating different aspects of web development and
+                      problem-solving skills.
+                    </p>
+                    <div className="mt-auto">
+                      <div className="d-flex flex-wrap gap-2 mb-3">
+                        <span className="badge bg-secondary py-2">React</span>
+                        <span className="badge bg-secondary py-2">
+                          JavaScript
+                        </span>
+                        <span className="badge bg-secondary py-2">
+                          HTML/CSS
+                        </span>
+                      </div>
+                      <div className="d-grid gap-2">
+                        <a
+                          href="https://github.com/ThilagaMC"
+                          className="btn btn-primary w-100"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faGithub} className="me-2" />
+                          View My GitHub
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
@@ -1336,6 +1580,22 @@ function App() {
                             LinkedIn Profile
                           </a>
                         </li>
+                        {/* <li>
+                          <a
+                            href="https://github.com/ThilagaMC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-decoration-none d-flex align-items-center text-dark"
+                          >
+                            <div className="icon-wrapper bg-primary-soft rounded-circle me-3 p-2">
+                              <FontAwesomeIcon
+                                icon={faGithub}
+                                className="text-primary"
+                              />
+                            </div>
+                            GitHub Profile
+                          </a>
+                        </li> */}
                       </ul>
                     </div>
                   </div>
@@ -1348,6 +1608,7 @@ function App() {
                         Send a Message
                       </h4>
 
+                      {/* Alert notification */}
                       {alert.show && (
                         <div
                           className={`alert alert-${alert.variant} alert-dismissible fade show`}
@@ -1364,7 +1625,7 @@ function App() {
 
                       <form onSubmit={handleSubmit}>
                         <div className="mb-3">
-                          <label htmlFor="userName" className="form-label">
+                          <label htmlFor="name" className="form-label">
                             Name
                           </label>
                           <input
@@ -1373,7 +1634,6 @@ function App() {
                             id="userName"
                             value={formData.userName}
                             onChange={handleChange}
-                            required
                           />
                         </div>
                         <div className="mb-3">
