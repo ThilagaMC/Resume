@@ -223,7 +223,7 @@ function App() {
               </div>
 
               <div className="mt-4 btn-group-hero">
-  <a href="#contact" className="btn btn-hero btn-hero-primary">
+  <a href="#contact" className="btn btn-hero btn-hero-primary m-1">
     Contact Me
   </a>
   <a href="#project" className="btn btn-hero btn-hero-primary">
@@ -601,7 +601,7 @@ function App() {
               aria-labelledby="backend-tab"
             >
               <div className="row g-4">
-                
+
                 <div className="col-md-6 col-lg-3">
                   <div className="card h-100 skill-card border-0 shadow-sm hover-lift">
                     <div className="card-body text-center p-4">
