@@ -226,13 +226,13 @@ function App() {
   <a href="#contact" className="btn btn-hero btn-hero-primary m-1">
     Contact Me
   </a>
-  <a href="#project" className="btn btn-hero btn-hero-primary">
+  <a href="#project" className="btn btn-hero btn-hero-primary m-1">
     View Projects
   </a>
   <a 
     href="../public/Thilagavathi - Resume.pdf" 
     download="Thilagavathi_Resume.pdf"
-    className="btn btn-hero btn-hero-primary"
+    className="btn btn-hero btn-hero-primary m-1"
   >
     Download Resume
   </a>
