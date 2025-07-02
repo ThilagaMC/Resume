@@ -467,3 +467,38 @@ footer {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+
+/* Add to your App.css */
+.timeline {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  border-left: 2px solid #dee2e6;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  left: -9px;
+  top: 0;
+  background: #37759e;
+  border: 3px solid white;
+}
+
+/* Technology badge colors */
+.bg-react { background-color: #61DAFB; color: #000; }
+.bg-node { background-color: #339933; color: #fff; }
+.bg-js { background-color: #F7DF1E; color: #000; }
+.bg-mongo { background-color: #47A248; color: #fff; }

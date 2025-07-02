@@ -13,10 +13,13 @@ import {
   faCertificate,
   faShieldAlt,
   faSyncAlt,
-  faCogs,
+  faCogs, 
+  faLock, 
+  faLaptopCode,
+  faGraduationCap, 
+  faCodeBranch
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-
 // Import all images
 import profilePic from "/Pictures/IMG_7609.JPG";
 import lcmIcon from "../Pictures/LCM.svg";
@@ -160,6 +163,12 @@ function App() {
                 </a>
               </li>
               <li className="nav-item mx-1">
+                <a className="nav-link px-3 py-2 rounded" href="#experience">
+                  Work Experience
+                </a>
+              </li>
+
+              <li className="nav-item mx-1">
                 <a className="nav-link px-3 py-2 rounded" href="#project">
                   Projects
                 </a>
@@ -191,7 +200,7 @@ function App() {
                 </span>
               </p>
               <p className="mb-4 fs-5 text-dark">
-                I am an IAM Engineer with two years of experience in identity
+                I am an IAM Engineer with 2+ years of experience in identity
                 lifecycle management, automation, and secure access control. I
                 specialize in IAM automation, user provisioning, and API
                 integrations. Alongside my IAM expertise, I have Full Stack
@@ -1129,6 +1138,113 @@ function App() {
 
       </section>
 
+{/* Experience Section */}
+<section id="experience" className="py-5 bg-white">
+  <div className="container py-4">
+    <div className="section-header text-center mb-5">
+      <h2 className="display-5 fw-bold mb-3">Professional Journey</h2>
+      <p className="lead text-muted">Blending security engineering with full-stack development</p>
+    </div>
+
+    <div className="timeline">
+      
+      {/* LTIMindtree */}
+      <div className="timeline-item">
+        <div className="card border-0 shadow-sm hover-lift mb-4">
+          <div className="card-body p-4">
+            <div className="d-flex align-items-center mb-3">
+              <div className="bg-primary-soft rounded-3 p-2 me-3">
+                <FontAwesomeIcon icon={faShieldAlt} className="text-primary" />
+              </div>
+              <div>
+                <h4 className="mb-0">Information Security Consultant</h4>
+                <p className="text-muted mb-0">LTIMindtree | May 2025 – Present</p>
+              </div>
+            </div>
+            <ul className="mb-0 ps-3">
+              <li className="mb-2">Implementing IAM solutions to support secure access across enterprise systems</li>
+              <li className="mb-2">Working on automation of user lifecycle and access governance using Okta & Power Automate</li>
+              <li>Collaborating with teams to design security-first development workflows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Freelancing */}
+      <div className="timeline-item">
+        <div className="card border-0 shadow-sm hover-lift mb-4">
+          <div className="card-body p-4">
+            <div className="d-flex align-items-center mb-3">
+              <div className="bg-primary-soft rounded-3 p-2 me-3">
+                <FontAwesomeIcon icon={faLaptopCode} className="text-primary" />
+              </div>
+              <div>
+                <h4 className="mb-0">Creative Designer & MERN Developer</h4>
+                <p className="text-muted mb-0">Self Employed | Nov 2024 – Apr 2025</p>
+              </div>
+            </div>
+            <ul className="mb-0 ps-3">
+              <li className="mb-2">Built a full-stack interactive app with React, Node.js, and Express</li>
+              <li className="mb-2">Designed clean, responsive UI/UX with optimized performance</li>
+              <li>Enabled seamless data flow and real-time interaction using REST APIs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* AVASOFT – Security Engineer */}
+      <div className="timeline-item">
+        <div className="card border-0 shadow-sm hover-lift mb-4">
+          <div className="card-body p-4">
+            <div className="d-flex align-items-center mb-3">
+              <div className="bg-primary-soft rounded-3 p-2 me-3">
+                <FontAwesomeIcon icon={faLock} className="text-primary" />
+              </div>
+              <div>
+                <h4 className="mb-0">Security Engineer</h4>
+                <p className="text-muted mb-0">AVASOFT | Apr 2023 – Oct 2024</p>
+              </div>
+            </div>
+            <ul className="mb-0 ps-3">
+              <li className="mb-2">Contributed to internal tooling and secure app development</li>
+              <li className="mb-2">Streamlined IAM ticket resolution via Power Automate integration</li>
+              <li className="mb-2">Implemented security best practices in development workflows</li>
+              <li className="mb-2">Worked closely with IAM engineers to integrate backend logic into access workflows</li>
+              <li className="mb-2">Supported audits and role-based access control implementations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* AVASOFT – Cybersecurity Trainee */}
+      <div className="timeline-item">
+        <div className="card border-0 shadow-sm hover-lift">
+          <div className="card-body p-4">
+            <div className="d-flex align-items-center mb-3">
+              <div className="bg-primary-soft rounded-3 p-2 me-3">
+                <FontAwesomeIcon icon={faGraduationCap} className="text-primary" />
+              </div>
+              <div>
+                <h4 className="mb-0">Cybersecurity Trainee</h4>
+                <p className="text-muted mb-0">AVASOFT | Jan 2023 – Jun 2023</p>
+              </div>
+            </div>
+            <ul className="mb-0 ps-3">
+  <li className="mb-2">Assisted in implementing and testing IAM workflows including user provisioning and access review processes</li>
+  <li className="mb-2">Worked on endpoint security hardening and monitored policy compliance across systems</li>
+  <li className="mb-2">Supported VAPT (Vulnerability Assessment & Penetration Testing) by preparing test environments and analyzing security reports</li>
+  <li className="mb-2">Helped configure and monitor email security solutions to detect phishing and spam attempts</li>
+  <li className="mb-2">Gained knowledge experience with firewall rules, VPN, and basic network security configurations</li>
+</ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
       {/* Projects Section */}
       <section id="project" className="py-5 bg-white">
 
@@ -1428,7 +1544,38 @@ function App() {
             <h4 className="mb-4 pb-2 border-bottom">Full Stack Projects</h4>
 
             <div className="row g-4">
+
               {/* Project 1 */}
+              <div className="col-md-4">
+                <div className="card h-100 border-0 shadow-sm">
+                  <div className="card-header bg-white border-bottom-0 py-3">
+                    <strong>EmotionEase - Mental welfare website</strong>
+                  </div>
+                  <div className="card-body d-flex flex-column">
+                    <p className="card-text">
+                       A mental wellness platform offering personalized emotional support and therapy sessions. Designed with a calming interface, it helps users navigate stress, relationships, and self-growth with expert guidance.
+                    </p>
+                    <div className="mt-auto">
+                      <div className="d-flex flex-wrap gap-2 mb-3">
+                        <span className="badge bg-secondary py-2">React</span>
+                        <span className="badge bg-secondary py-2">Node.js</span>
+                        <span className="badge bg-secondary py-2">
+                          Express JS
+                        </span>
+                        <span className="badge bg-secondary py-2">MongoDB</span>
+                      </div>
+                      <a
+                        href="https://emotionease.in"
+                        className="btn btn-primary w-100"
+                      >
+                        Live Demo
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project 2 */}
               <div className="col-md-4">
                 <div className="card h-100 border-0 shadow-sm">
                   <div className="card-header bg-white border-bottom-0 py-3">
@@ -1460,7 +1607,7 @@ function App() {
                 </div>
               </div>
 
-              {/* Project 2 */}
+              {/* Project 3 */}
               <div className="col-md-4">
                 <div className="card h-100 border-0 shadow-sm">
                   <div className="card-header bg-white border-bottom-0 py-3">
@@ -1493,7 +1640,7 @@ function App() {
                 </div>
               </div>
 
-              {/* Project 3 */}
+              {/* Project 4 */}
               <div className="col-md-4">
                 <div className="card h-100 border-0 shadow-sm">
                   <div className="card-header bg-white border-bottom-0 py-3">
