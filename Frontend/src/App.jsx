@@ -1179,7 +1179,7 @@ function App() {
               </div>
               <div>
                 <h4 className="mb-0">Creative Designer & MERN Developer</h4>
-                <p className="text-muted mb-0">Self Employed | Nov 2024 – Apr 2025</p>
+                <p className="text-muted mb-0">Self Employed | November 2024 – April 2025</p>
               </div>
             </div>
             <ul className="mb-0 ps-3">
@@ -1201,7 +1201,7 @@ function App() {
               </div>
               <div>
                 <h4 className="mb-0">Security Engineer</h4>
-                <p className="text-muted mb-0">AVASOFT | Apr 2023 – Oct 2024</p>
+                <p className="text-muted mb-0">AVASOFT | July 2023 – October 2024</p>
               </div>
             </div>
             <ul className="mb-0 ps-3">
@@ -1225,7 +1225,7 @@ function App() {
               </div>
               <div>
                 <h4 className="mb-0">Cybersecurity Trainee</h4>
-                <p className="text-muted mb-0">AVASOFT | Jan 2023 – Jun 2023</p>
+                <p className="text-muted mb-0">AVASOFT | January 2023 – June 2023</p>
               </div>
             </div>
             <ul className="mb-0 ps-3">
