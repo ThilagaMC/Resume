@@ -16,8 +16,7 @@ import {
   faCogs, 
   faLock, 
   faLaptopCode,
-  faGraduationCap, 
-  faCodeBranch
+  faGraduationCap
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 // Import all images
